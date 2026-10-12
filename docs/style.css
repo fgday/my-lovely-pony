@@ -60,6 +60,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23b7a3e3' d='M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.6.7-1.4 2.2-2.6 4.3-2.6 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E");
 }
 
+/* Sophia's line: her face in place of the heart. */
+.care li.sophia { padding-left: 66px; min-height: 56px; }
+.care li.sophia::before { display: none; }
+.care li.sophia img {
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(59, 36, 18, 0.15);
+}
+
 /* ---------- Scenes: the paddock art sits on the bottom edge, and a flat
    colour matching its top continues the sky above it. ---------- */
 .scene {
@@ -104,15 +117,108 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.35;
   color: var(--ink);
 }
-.soon {
-  display: inline-block;
+.beta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   margin: 22px 0 0;
-  padding: 10px 22px;
+}
+.beta-tag {
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--edge);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
   border-radius: 999px;
   background: var(--plum);
   color: #fff;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
   box-shadow: 0 6px 16px rgba(125, 62, 90, 0.25);
+}
+.cta::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid currentColor;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.cta:hover, .cta:focus-visible { background: #6a3049; }
+.night-tail .cta { background: #fff4c8; color: var(--plum); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
+.night-tail .cta:hover, .night-tail .cta:focus-visible { background: #fff; }
+.night-cta { margin: 0 0 28px; }
+
+/* The language picker: a <details>, so it opens without JavaScript. */
+.lang-menu {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 5;
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-weight: 500;
+  text-align: left;
+}
+.doc { position: relative; }
+.doc .lang-menu { top: 26px; }
+.lang-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+  box-shadow: 0 3px 10px rgba(59, 36, 18, 0.12);
+  cursor: pointer;
+  list-style: none;
+}
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin: -3px 2px 0 2px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.lang-menu[open] summary::after { transform: rotate(225deg); margin-top: 3px; }
+.lang-menu ul {
+  position: absolute;
+  right: 0;
+  margin-top: 6px;
+  padding: 6px;
+  min-width: 170px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(59, 36, 18, 0.18);
+}
+.lang-menu li a, .lang-menu .current {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.lang-menu li a:hover, .lang-menu li a:focus-visible { background: var(--paper); }
+.lang-menu .current { background: var(--paper-deep); }
+.flag { flex: none; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12); }
+@media (max-width: 520px) {
+  .lang-menu summary .name { display: none; }
+  .cta { padding: 11px 18px; font-size: 0.98rem; gap: 8px; }
 }
 .hero .herd { margin-top: 36px; }
 .hero .herd { padding-left: 0; padding-right: 0; }
@@ -138,7 +244,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #fbe3ec;
+  background: #fdebd3;
   box-shadow: 0 4px 12px rgba(59, 36, 18, 0.14);
   font-size: 24px;
   line-height: 1;
