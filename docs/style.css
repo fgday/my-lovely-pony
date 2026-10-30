@@ -252,6 +252,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 .b2 { background: #e3f0fb; }
 .b3 { background: #efe8fb; }
 
+/* Riding school: a ride from the game, on the day grass */
+.ride { padding: 56px 0 120px; }
+.ride .card { margin: 0 16px; }
+.ride .card p { margin: 0; }
+.ride-shot {
+  display: block;
+  width: calc(100% - 32px);
+  max-width: 760px;
+  height: auto;
+  margin: 32px auto 0;
+  border: 6px solid #fff;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(40, 30, 60, 0.18);
+}
+
 /* Growth: the three ages to scale, on the sunset grass */
 .card {
   background: rgba(255, 251, 246, 0.92);
@@ -372,7 +387,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero .h1, .hero .h5 { width: 23%; }
   .hero { padding-top: 64px; }
   .split { grid-template-columns: 1.1fr 1fr; gap: 48px; }
-  .grow .card, .card.dark { margin: 0 auto; }
+  .grow .card, .ride .card, .card.dark { margin: 0 auto; }
   .boxes { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
   .paper { padding: 80px 0; }
   .intro { padding-bottom: 24px; }
